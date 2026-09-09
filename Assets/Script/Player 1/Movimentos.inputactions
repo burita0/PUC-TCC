@@ -32,7 +32,7 @@
                 {
                     "name": "up",
                     "id": "cd873e0c-1f0b-4a1d-9f83-a3792a1db4fd",
-                    "path": "<SwitchProControllerHID>/buttonEast",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

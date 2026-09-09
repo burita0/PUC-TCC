@@ -1,9 +1,8 @@
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class mover : MonoBehaviour
+public class Mov : MonoBehaviour
 {
     [Header("Configurações de Movimento")]
     public float speed = 5f;
@@ -40,4 +39,3 @@ public class mover : MonoBehaviour
 
 
 }
-
