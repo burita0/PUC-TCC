@@ -4,11 +4,16 @@ using UnityEngine.InputSystem;
 
 public class Mov : MonoBehaviour
 {
+
+     private Animator anima;
+     
+
     [Header("Configurações de Movimento")]
     public float speed = 5f;
 
     private Vector3 moveInput;
     private Rigidbody rb;
+     public float forcaEmpurrao = 10f;
 
 
     public GameObject Objeto;
@@ -17,6 +22,12 @@ public class Mov : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotation; // Evita tombar
+         anima = GetComponent<Animator>();
+    }
+
+        void Update()
+    {
+        
     }
 
     // Chamado automaticamente pelo Player Input
@@ -37,5 +48,24 @@ public class Mov : MonoBehaviour
         rb.MovePosition(targetPosition);
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Empurrar"))
+    
+     {
+        if (Keyboard.current.spaceKey.isPressed)
+            {
+                Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+                Debug.Log("Abrir porta");
+                 if (rb != null)
+                {
+                    Vector3 direcao = new Vector3(moveInput.x, 0, moveInput.y);
 
+                    rb.AddForce(direcao.normalized * forcaEmpurrao);
+                }
+            }
+     }
+    } 
 }
+
+

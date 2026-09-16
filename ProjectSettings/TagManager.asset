@@ -6,6 +6,7 @@ TagManager:
   tags:
   - button
   - apert
+  - Empurrar
   layers:
   - Default
   - TransparentFX
