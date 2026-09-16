@@ -48,24 +48,16 @@ public class Mov : MonoBehaviour
         rb.MovePosition(targetPosition);
     }
 
-    private void OnCollisionStay(Collision collision)
+    public void OnEmpurrar()
     {
-        if (collision.gameObject.CompareTag("Empurrar"))
-    
-     {
-        if (Keyboard.current.spaceKey.isPressed)
-            {
-                Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-                Debug.Log("Abrir porta");
-                 if (rb != null)
-                {
-                    Vector3 direcao = new Vector3(moveInput.x, 0, moveInput.y);
+        anima.SetBool("Empu",true);
+    }
+    public void OnEmpurrarExi()
+    {
+        anima.SetBool("Empu",false);
+    }
 
-                    rb.AddForce(direcao.normalized * forcaEmpurrao);
-                }
-            }
-     }
-    } 
-}
+ } 
+
 
 
